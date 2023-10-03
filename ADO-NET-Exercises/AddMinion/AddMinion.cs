@@ -62,6 +62,8 @@ namespace AddMinion
                         MapMinionVillain((int)minionId, (int)villainId, connection, transaction);
                         Console.WriteLine($"Successfully added {newMinionName} to be minion of {villainName}.");
                     }
+
+                    transaction.Commit();
                 }
                 catch (SqlException ex)
                 {
@@ -70,7 +72,6 @@ namespace AddMinion
                     throw ex;
                 }
 
-                transaction.Commit();
                 transaction.Dispose();
             }
         }
