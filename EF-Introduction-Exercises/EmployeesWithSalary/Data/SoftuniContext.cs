@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using EmployeesWithSalary.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace SoftUni.Models;
+namespace EmployeesWithSalary.Data;
 
 public partial class SoftuniContext : DbContext
 {
@@ -26,6 +27,7 @@ public partial class SoftuniContext : DbContext
     public virtual DbSet<Town> Towns { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=.;Database=Softuni;Integrated Security=true;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
